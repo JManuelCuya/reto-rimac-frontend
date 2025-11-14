@@ -1,0 +1,48 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.footer {
+  background: $color-secondary;
+  padding: $spacing-xxl $spacing-lg;
+  margin-top: auto;
+
+  &__container {
+    @include flex-between;
+    gap: $spacing-md;
+    align-items: center;
+
+    @include mobile {
+      flex-direction: column;
+      gap: $spacing-sm;
+    }
+  }
+
+  &__logo {
+    flex-shrink: 0;
+
+    svg {
+      height: 35px;
+      width: auto;
+    }
+  }
+
+  &__logo-img {
+    height: 35px;
+    width: auto;
+  }
+
+  &__separator {
+    display: none;
+  }
+
+  &__copyright {
+    font-size: $font-size-small;
+    color: $color-white;
+    margin: 0;
+
+    @include mobile {
+      font-size: 12px;
+      text-align: center;
+    }
+  }
+}

@@ -1,0 +1,96 @@
+@import './variables';
+@import './mixins';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: $font-size-base;
+}
+
+body {
+  font-family: $font-family;
+  color: $color-text;
+  background-color: $color-bg;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.5;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: $font-weight-bold;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: $font-size-xxlarge;
+}
+
+h2 {
+  font-size: $font-size-xlarge;
+}
+
+h3 {
+  font-size: $font-size-large;
+}
+
+p {
+  line-height: 1.6;
+}
+
+a {
+  color: $color-primary;
+  text-decoration: none;
+  transition: opacity $transition-fast;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+button {
+  cursor: pointer;
+  transition: all $transition-fast;
+  font-family: inherit;
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+}
+
+input, textarea, select {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+// Container
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 $spacing-md;
+
+  @include tablet {
+    padding: 0 $spacing-lg;
+  }
+
+  @include desktop {
+    padding: 0 $spacing-xl;
+  }
+}

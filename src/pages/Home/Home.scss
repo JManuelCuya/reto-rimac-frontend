@@ -1,0 +1,563 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.home {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+  justify-content: center;
+  align-items: center;
+  padding: $spacing-lg;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 50%;
+    background-image: url('/img/degradado-izquierdo.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.4;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 50%;
+    background-image: url('/img/degradado-derecho.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.4;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  @include mobile {
+    flex-direction: column;
+    gap: $spacing-md;
+    justify-content: center;
+    align-items: center;
+    padding: $spacing-md;
+  }
+
+  @include tablet {
+    flex-direction: column;
+    gap: $spacing-lg;
+    justify-content: center;
+    align-items: center;
+    padding: $spacing-lg;
+  }
+
+  @include desktop {
+    flex-direction: row;
+    gap: $spacing-xl;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+  }
+
+  &__hero {
+    position: relative;
+    width: auto;
+    height: auto;
+    overflow: hidden;
+    background: transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 0;
+    gap: $spacing-md;
+    flex-shrink: 0;
+    z-index: 1;
+
+    @include mobile {
+      flex-direction: column;
+      padding: 0;
+      gap: $spacing-sm;
+      min-height: auto;
+      align-items: flex-start;
+      width: auto;
+    }
+
+    @include tablet {
+      flex-direction: column;
+      padding: 0;
+      gap: $spacing-md;
+      width: auto;
+    }
+
+    @include desktop {
+      flex-direction: column;
+      width: auto;
+      height: auto;
+      padding: 0;
+      gap: $spacing-lg;
+      min-height: auto;
+      flex-shrink: 0;
+    }
+
+  }
+
+  &__hero-image {
+    width: auto;
+    height: auto;
+    max-width: 85%;
+    max-height: 100%;
+    object-fit: contain;
+    flex-shrink: 0;
+
+    @include tablet {
+      max-width: 250px;
+      max-height: 250px;
+    }
+
+    @include mobile {
+      display: none;
+    }
+  }
+
+  &__hero-image-mobile {
+    display: none;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    flex-shrink: 0;
+
+    @include mobile {
+      display: block;
+      max-width: 100px;
+      max-height: 100px;
+    }
+
+    @include tablet {
+      display: none;
+    }
+
+    @include desktop {
+      display: none;
+    }
+  }
+
+  &__hero-info {
+    @include flex-column;
+    gap: $spacing-md;
+    width: auto;
+    align-items: flex-start;
+
+    @include mobile {
+      flex-direction: row;
+      gap: $spacing-sm;
+      align-items: center;
+      width: 100%;
+    }
+
+    @include desktop {
+      width: auto;
+    }
+  }
+
+  &__hero-text {
+    @include flex-column;
+    gap: $spacing-sm;
+    align-items: flex-start;
+  }
+
+  &__content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+
+    @include tablet {
+      padding: 0;
+      width: 100%;
+    }
+
+    @include desktop {
+      padding: 0;
+      width: auto;
+    }
+  }
+
+  &__container {
+    @include flex-column;
+    gap: $spacing-lg;
+    width: auto;
+    display: flex;
+    align-items: flex-start;
+
+    @include mobile {
+      gap: $spacing-md;
+      align-items: flex-start;
+      width: 100%;
+    }
+
+    @include tablet {
+      gap: $spacing-lg;
+      align-items: flex-start;
+      width: 100%;
+    }
+
+    @include desktop {
+      gap: $spacing-lg;
+      align-items: flex-start;
+      width: auto;
+    }
+  }
+
+  &__info {
+    @include flex-column;
+    gap: $spacing-md;
+    width: 100%;
+    flex-shrink: 0;
+  }
+
+  &__tag {
+    display: inline-block;
+    padding: 4px $spacing-sm;
+    background: linear-gradient(90deg, #00F4E2 0%, #00FF7F 100%);
+    color: $color-text;
+    font-size: $font-size-small;
+    font-weight: $font-weight-bold;
+    border-radius: $border-radius-sm;
+    width: fit-content;
+    letter-spacing: 0.5px;
+  }
+
+  &__title {
+    font-size: $font-size-xxlarge;
+    font-weight: $font-weight-bold;
+    color: $color-text;
+    line-height: 1.2;
+    margin: 0;
+
+    @include mobile {
+      font-size: 28px;
+    }
+  }
+
+  &__title-break-mobile {
+    display: none;
+
+    @include mobile {
+      display: block;
+    }
+  }
+
+  &__description {
+    font-size: $font-size-base;
+    color: $color-text;
+    line-height: 1.6;
+    margin: 0;
+
+    @include mobile {
+      font-size: $font-size-small;
+    }
+  }
+
+  &__form-wrapper {
+    @include flex-column;
+    gap: $spacing-md;
+    width: 100%;
+    max-width: 400px;
+    align-items: flex-start;
+
+    @include tablet {
+      gap: $spacing-md;
+      max-width: 400px;
+      align-items: flex-start;
+    }
+
+    @include desktop {
+      gap: $spacing-md;
+      max-width: 400px;
+      align-items: flex-start;
+    }
+  }
+
+  &__form {
+    @include flex-column;
+    gap: $spacing-md;
+    padding: 0;
+    background: transparent;
+    width: 100%;
+    align-self: flex-start;
+
+    @include tablet {
+      gap: $spacing-lg;
+      padding: 0;
+      width: 100%;
+    }
+
+    @include desktop {
+      gap: $spacing-lg;
+      padding: 0;
+      width: 100%;
+    }
+  }
+
+  &__inputs-row {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-md;
+    width: 100%;
+  }
+
+  &__form-header {
+    @include flex-column;
+    gap: $spacing-sm;
+  }
+
+  &__form-tag {
+    @include flex-center;
+    width: 40px;
+    height: 40px;
+
+    svg {
+      width: 40px;
+      height: 40px;
+    }
+  }
+
+  &__form-title {
+    font-size: $font-size-xlarge;
+    font-weight: $font-weight-bold;
+    color: $color-text;
+    margin: 0;
+
+    @include mobile {
+      font-size: $font-size-large;
+    }
+  }
+
+  &__form-field {
+    @include flex-column;
+    gap: 8px;
+    flex: 1;
+  }
+
+  &__document-group {
+    display: flex;
+    gap: 0;
+    align-items: stretch;
+    position: relative;
+    margin-bottom: 8px;
+    border: 1px solid $color-border;
+    border-radius: $border-radius-md;
+    background: $color-white;
+    transition: border-color $transition-fast;
+
+    &:focus-within {
+      border-color: $color-primary;
+    }
+  }
+
+  &__document-select-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    border-right: 1px solid $color-border;
+  }
+
+  &__document-select {
+    padding: $spacing-md $spacing-lg;
+    padding-right: 36px;
+    border: none;
+    border-radius: 0;
+    background: transparent;
+    font-size: $font-size-base;
+    color: $color-text;
+    font-weight: $font-weight-semibold;
+    cursor: pointer;
+    transition: all $transition-fast;
+    flex-shrink: 0;
+    width: auto;
+    min-height: 48px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &__document-select-arrow {
+    position: absolute;
+    right: 12px;
+    width: 16px;
+    height: 16px;
+    pointer-events: none;
+    color: $color-text;
+    flex-shrink: 0;
+  }
+
+  &__document-input-wrapper {
+    flex: 1;
+    position: relative;
+  }
+
+  &__document-input {
+    width: 100%;
+
+    &.input-wrapper {
+      gap: 0;
+    }
+
+    .input-wrapper__label {
+      display: none;
+    }
+
+    .input-wrapper__field {
+      border: none !important;
+      border-radius: 0 !important;
+      background: transparent !important;
+    }
+
+    .input-wrapper__field:focus-within {
+      border-color: transparent;
+    }
+
+    .input-wrapper__input {
+      padding: $spacing-md $spacing-md !important;
+      padding-top: 20px !important;
+      padding-bottom: 12px !important;
+      font-size: $font-size-base;
+      min-height: 48px;
+    }
+
+    .input-wrapper__error {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      margin-top: 4px;
+    }
+  }
+
+  &__document-input-label {
+    position: absolute;
+    top: 50%;
+    left: $spacing-md;
+    transform: translateY(-50%);
+    font-size: $font-size-base;
+    color: $color-text-light;
+    pointer-events: none;
+    transition: all 200ms ease-in-out;
+    background: $color-white;
+    padding: 0 2px;
+    z-index: 1;
+
+    .home__document-input-wrapper:focus-within & {
+      top: 6px;
+      transform: translateY(0);
+      font-size: 10px;
+      color: $color-primary;
+      font-weight: $font-weight-semibold;
+    }
+
+    .home__document-input-wrapper--filled & {
+      top: 6px;
+      transform: translateY(0);
+      font-size: 10px;
+      color: $color-text;
+    }
+  }
+
+  &__phone-wrapper {
+    position: relative;
+  }
+
+  &__phone-input {
+    &.input-wrapper {
+      gap: 0;
+    }
+
+    .input-wrapper__label {
+      display: none;
+    }
+
+    .input-wrapper__field {
+      border-radius: $border-radius-md !important;
+    }
+
+    .input-wrapper__input {
+      padding-top: 20px !important;
+      padding-bottom: 12px !important;
+      padding-right: $spacing-lg !important;
+      padding-left: $spacing-lg !important;
+      font-size: $font-size-base;
+      min-height: 48px;
+    }
+  }
+
+  &__phone-input-label {
+    position: absolute;
+    top: 50%;
+    left: 40px;
+    transform: translateY(-50%);
+    font-size: $font-size-base;
+    color: $color-text-light;
+    pointer-events: none;
+    transition: all 200ms ease-in-out;
+    background: $color-white;
+    padding: 0 2px;
+    z-index: 1;
+
+    .home__phone-wrapper:focus-within & {
+      top: 6px;
+      transform: translateY(0);
+      font-size: 10px;
+      color: $color-primary;
+      font-weight: $font-weight-semibold;
+    }
+
+    .home__phone-wrapper--filled & {
+      top: 6px;
+      transform: translateY(0);
+      font-size: 10px;
+      color: $color-text;
+    }
+  }
+
+  &__checkboxes {
+    @include flex-column;
+    gap: $spacing-md;
+
+    a {
+      color: $color-text;
+      text-decoration: none;
+      transition: color $transition-fast;
+
+      &:hover {
+        color: darken($color-text, 10%);
+      }
+    }
+  }
+
+  &__underlined {
+    text-decoration: underline !important;
+  }
+
+  &__submit-button {
+    width: 50% !important;
+    margin-left: 0;
+    margin-right: auto;
+  }
+}

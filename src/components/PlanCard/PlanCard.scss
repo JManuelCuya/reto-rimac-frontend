@@ -1,0 +1,188 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.plan-card {
+  position: relative;
+  @include flex-column;
+  gap: $spacing-xl;
+  padding: 35px;
+  background: $color-white;
+  border-radius: $border-radius-lg;
+  border: 2px solid transparent;
+  @include card-shadow;
+  transition: all $transition-base;
+  min-height: 480px;
+
+  &:hover {
+    border-color: $color-primary;
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  }
+
+  &--recommended {
+    border-color: $color-primary;
+  }
+
+  &__badge {
+    position: absolute;
+    top: -12px;
+    right: $spacing-lg;
+    padding: 4px $spacing-md;
+    background: linear-gradient(90deg, #00C853 0%, #00E676 100%);
+    color: $color-white;
+    font-size: 12px;
+    font-weight: $font-weight-bold;
+    border-radius: $border-radius-full;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  &__header {
+    @include flex-column;
+    gap: $spacing-md;
+  }
+
+  &__header-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: $spacing-md;
+  }
+
+  &__icon {
+    @include flex-center;
+    flex-shrink: 0;
+
+    svg {
+      width: 56px;
+      height: 56px;
+    }
+  }
+
+  &__icon-img {
+    width: 56px;
+    height: 56px;
+    object-fit: contain;
+  }
+
+  &__name {
+    font-size: $font-size-large;
+    font-weight: $font-weight-bold;
+    color: $color-text;
+    margin: 0;
+    flex: 1;
+    text-align: left;
+  }
+
+  &__price-section {
+    @include flex-column;
+    gap: 4px;
+    text-align: left;
+  }
+
+  &__price-label {
+    font-size: $font-size-small;
+    color: $color-text-light;
+    text-transform: uppercase;
+    font-weight: $font-weight-semibold;
+  }
+
+  &__price {
+    font-size: $font-size-xlarge;
+    font-weight: $font-weight-bold;
+    color: $color-text;
+  }
+
+  &__divider {
+    width: 100%;
+    height: 1px;
+    background: $color-border;
+  }
+
+  &__features {
+    @include flex-column;
+    gap: $spacing-lg;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex: 1;
+  }
+
+  &__feature {
+    display: flex;
+    gap: $spacing-sm;
+    align-items: flex-start;
+    font-size: $font-size-small;
+    color: $color-text;
+    line-height: 1.5;
+
+    svg {
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+  }
+
+  &__button {
+    margin-top: auto;
+  }
+
+  @include mobile {
+    padding: $spacing-md;
+    gap: $spacing-md;
+
+    &__badge {
+      right: $spacing-sm;
+      top: -8px;
+      font-size: 10px;
+      padding: 2px $spacing-xs;
+    }
+
+    &__header {
+      gap: $spacing-sm;
+    }
+
+    &__header-top {
+      gap: $spacing-sm;
+    }
+
+    &__icon {
+      flex-shrink: 0;
+    }
+
+    &__icon-img {
+      width: 40px;
+      height: 40px;
+    }
+
+    &__name {
+      font-size: $font-size-base;
+    }
+
+    &__price-label {
+      font-size: 10px;
+    }
+
+    &__price {
+      font-size: $font-size-large;
+    }
+
+    &__divider {
+      margin: $spacing-sm 0;
+    }
+
+    &__features {
+      gap: $spacing-xs;
+    }
+
+    &__feature {
+      font-size: 12px;
+      gap: $spacing-xs;
+
+      svg {
+        width: 16px;
+        height: 16px;
+        margin-top: 0;
+      }
+    }
+  }
+}
